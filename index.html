@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvoje jména | Web Designer</title>
+
+    <!-- Google Fonts - ⬇️ NAHRAĎ VLASTNÍM FONTEM -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+
+                <!-- Logo / Jméno -->
+                <a href="#home" class="logo">Bomba</a>
+
+                <!-- Navigační menu -->
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#works" class="nav-link">Works</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <!-- Levá strana - text -->
+                <div class="hero-text">
+                    <h1>
+                        Hi,<br>
+                        I'm <span class="highlight">Bomba</span><br>
+                        Web Designer
+                    </h1>
+
+                    <p>Creative and passionate about building beautiful digital experiences.</p>
+
+                    <a href="#contact" class="btn btn-primary">Contact</a>
+                </div>
+
+                <!-- Pravá strana - fotka -->
+                <div class="hero-image">
+                    <svg class="image-mask" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- SVG maska bude tady - vytvoříme v kroku 6 -->
+                        <defs>
+                            <clipPath id="circleMask">
+                                <path fill="#08BDBA"
+                                    d="M69.3,-21.9C78.6,6.2,67.2,41.6,43,59.1C18.8,76.7,-18.3,76.4,-43,58.6C-67.7,40.8,-80,5.4,-70.8,-22.6C-61.6,-50.5,-30.8,-71.1,-0.4,-71C30,-70.8,59.9,-50,69.3,-21.9Z"
+                                    transform="translate(200, 200) scale(2.2)" />
+
+                            </clipPath>
+                        </defs>
+                        <image href="/images/image.png" width="400" height="400" clip-path="url(#circleMask)" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Header bude tady -->
+
+    <!-- Hero sekce bude tady -->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
