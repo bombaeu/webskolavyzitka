@@ -1,17 +1,20 @@
-
 :root {
-    
+
   /* Barvy */
-  --primary-color: #F0386B;        /* Hlavní modrá - zvolil/a sis na Coolors */
-  --dark-text: #6b2d5c;            /* Tmavý text */
-  --light-bg: #f8c0c8;             /* Světlé pozadí */
-  --white: #fffcf7;                /* Bílá */
-  
+  --primary-color: #F0386B;
+  /* Hlavní modrá - zvolil/a sis na Coolors */
+  --dark-text: #6b2d5c;
+  /* Tmavý text */
+  --light-bg: #f8c0c8;
+  /* Světlé pozadí */
+  --white: #fffcf7;
+  /* Bílá */
+
   /* Fonty */
   --font-main: 'Bitcount Single Ink', sans-serif;
   --font-size-base: 16px;
-  
-  
+
+
   /* Rozestupy */
   --spacing-xs: 8px;
   --spacing-sm: 16px;
@@ -20,229 +23,620 @@
   --spacing-xl: 48px;
 
   /* Reset a základy */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-main);
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Header */
+  .header {
+    background-color: var(--white);
+    padding: var(--spacing-md) 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Logo */
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text);
+    text-decoration: none;
+    /* Tvůj nápad: Přidej vlastní barvu, font-style nebo i ikonu */
+  }
+
+  /* Menu */
+  .nav {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+
+  /* Aktivní link - modřát dolní čára */
+  .nav-link.active {
+    color: var(--primary-color);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-bg);
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+  }
+
+  /* Text sekce */
+  .hero-text h1 {
+    font-size: 56px;
+    /* Tvůj nápad: Změň velikost */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-lg);
+    color: var(--dark-text);
+  }
+
+  .hero-text h1 .highlight {
+    color: var(--primary-color);
+    /* Modrá barva */
+  }
+
+  .hero-text p {
+    font-size: 18px;
+    color: #6B7280;
+    /* Tmavě šedá */
+    margin-bottom: var(--spacing-lg);
+    max-width: 400px;
+  }
+
+  /* Tlačítko */
+  .btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Fotka - SVG */
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-mask {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+  }
+
+  .image-mask image {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Tablet a menší */
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      /* Jeden sloupec místo dvou */
+      gap: var(--spacing-md);
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      /* Menší nadpis */
+    }
+
+    .nav {
+      gap: var(--spacing-md);
+      /* Menší mezery v menu */
+    }
+
+    .hero-text p {
+      font-size: 16px;
+    }
+  }
+
+  /* Mobil */
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+    }
+
+    .nav {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+
+  .hero-text {
+    animation: slideInLeft 0.8s ease;
+  }
+
+  .hero-image {
+    animation: slideInRight 0.8s ease;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  }
+
+  .image-mask:hover {
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3)) brightness(1.1);
+  }
+
+  .btn-primary {
+    font-size: 40px;
+  }
 }
 
-body {
-  font-family: var(--font-main);
-  color: var(--dark-text);
-  background-color: var(--light-bg);
-  line-height: 1.6;
-}
+/* ===== SEKCE DOVEDNOSTI - ZÁKLAD ===== */
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-/* Header */
-.header {
-  background-color: var(--white);
-  padding: var(--spacing-md) 0;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Logo */
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--dark-text);
-  text-decoration: none;
-  /* Tvůj nápad: Přidej vlastní barvu, font-style nebo i ikonu */
-}
-
-/* Menu */
-.nav {
-  display: flex;
-  gap: var(--spacing-lg);
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--dark-text);
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: var(--primary-color);
-}
-
-/* Aktivní link - modřát dolní čára */
-.nav-link.active {
-  color: var(--primary-color);
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-}
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+.skills {
   padding: var(--spacing-xl) 0;
   background-color: var(--light-bg);
 }
 
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
-/* Text sekce */
-.hero-text h1 {
-  font-size: 56px;          /* Tvůj nápad: Změň velikost */
+/* Nadpisy sekcí */
+.section-title {
+  font-size: 48px;
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
   color: var(--dark-text);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+
+  /* Gradient text */
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.hero-text h1 .highlight {
-  color: var(--primary-color);  /* Modrá barva */
-}
-
-.hero-text p {
+.section-subtitle {
   font-size: 18px;
-  color: #6B7280;           /* Tmavě šedá */
-  margin-bottom: var(--spacing-lg);
-  max-width: 400px;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 500;
 }
 
-/* Tlačítko */
-.btn {
-  display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  border: none;
+/* Grid layout pro desktop */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 sloupce vedle sebe */
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.btn-primary {
+/* Kartička */
+.skill-card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover efekt na kartičku */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Ikona */
+.skill-icon {
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--spacing-md);
+
+  /* Flexbox pro centrování emoji */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #EEF2FF;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Hover efekt na ikonu */
+.skill-card:hover .skill-icon {
   background-color: var(--primary-color);
   color: var(--white);
+  transform: rotate(10deg) scale(1.1);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
+/* Texty */
+.skill-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: var(--spacing-sm);
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-title {
+  color: var(--primary-color);
+}
+
+.skill-description {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE DESIGN (Media Queries) ===== */
+
+/* Tablet (menší než 1024px) -> 2 sloupce */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 40px;
+  }
+}
+
+/* Mobil (menší než 768px) -> 1 sloupec */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    /* Pod sebou */
+    gap: var(--spacing-md);
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .skill-card {
+    padding: var(--spacing-md);
+  }
+
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+  }
+}
+
+.skill-card {
+  border-left: 4px solid var(--primary-color);
+  /* Modrý pruh vlevo */
+}
+
+.skill-card:nth-child(2) {
+  border-left-color: #ff00bf;
+  /* Zelená */
+}
+
+.skill-card:nth-child(3) {
+  border-left-color: #f50b0b;
+  /* Oranžová */
+}
+
+.skill-card:nth-child(4) {
+  border-left-color: #EF4444;
+  /* Červená */
+}
+
+.skill-card:nth-child(5) {
+  border-left-color: #f69300;
+  /* Fialová */
+}
+
+.skill-card:nth-child(6) {
+  border-left-color: #EC4899;
+  /* Růžová */
+}
+
+.skill-icon {
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto var(--spacing-md) auto;
+
+  /* Gradient background */
+  background: linear-gradient(135deg, var(--primary-color) 0%, #60A5FA 100%);
+  color: var(--white);
+
+  /* Transition */
+  transition: all 0.3s ease;
   box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
 }
 
-/* Fotka - SVG */
-.hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.skill-card:hover .skill-icon {
+  transform: rotate(175deg) scale(1.2);
+  /* Úplná rotace + zvětšení */
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.5);
 }
 
-.image-mask {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+.nav-link {
+  position: relative;
+  overflow: hidden;
 }
 
-.image-mask image {
-  width: 100%;
-  height: 100%;
-}
-/* Tablet a menší */
-@media (max-width: 768px) {
-  .hero-content {
-    grid-template-columns: 1fr;  /* Jeden sloupec místo dvou */
-    gap: var(--spacing-md);
-  }
-  
-  .hero-text h1 {
-    font-size: 40px;  /* Menší nadpis */
-  }
-  
-  .nav {
-    gap: var(--spacing-md);  /* Menší mezery v menu */
-  }
-  
-  .hero-text p {
-    font-size: 16px;
-  }
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
-/* Mobil */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 20px;
-  }
-  
-  .hero-text h1 {
-    font-size: 32px;
-  }
-  
-  .nav {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-}
-.hero-text {
-  animation: slideInLeft 0.8s ease;
+.nav-link:active::before {
+  width: 300px;
+  height: 300px;
 }
 
-.hero-image {
-  animation: slideInRight 0.8s ease;
-}
+/* ===== ANIMACE PRO PRVKY ===== */
 
-@keyframes slideInLeft {
+/* Definice animací - Používáme je univerzálně pro libovolný prvek */
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateY(30px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes slideInRight {
+@keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-.hero {
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
-}
-.image-mask:hover {
-  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3)) brightness(1.1);
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.btn-primary {
-  font-size: 40px;
+/* CSS třídy pro animace - připravíme si je pro JavaScript */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+/* Stagger efekt - zpoždění mezi prvky */
+.animate-stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.animate-stagger-5 {
+  animation-delay: 0.5s;
+}
+
+.animate-stagger-6 {
+  animation-delay: 0.6s;
+}
+
+/* Pro skill-cardy - přidáme do nich animace */
+.skill-card {
+  opacity: 0;
+  /* Začneme neviditelné */
+}
+
+.skill-card.animate-fade-in-up {
+  opacity: 1;
+  /* Jakmile se přidá class, stane se viditelné */
+}
+
+/* ===== VLASTNÍ ANIMACE A EFEKTY (Kroky 5.1 a 6.1) ===== */
+
+/* Krok 5.1B: Animace pro aktivní sekci */
+section.current {
+  animation: sectionEnter 0.6s ease;
+}
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Krok 6.1: Vlastní animace - Flip In */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: rotateY(-90deg) perspective(500px);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+.animate-flip-in {
+  animation: flipIn 0.8s ease-out forwards;
+}
+
+.skill-card.animate-flip-in {
+  opacity: 1;
 }
