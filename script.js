@@ -73,3 +73,49 @@ function initAnimations() {
 
 // Spusť animace když je dokument načten
 document.addEventListener('DOMContentLoaded', initAnimations);
+// ===== VYLEPŠENÝ PORTFOLIO FILTER =====
+
+function initPortfolioFilter() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Aktivní tlačítko
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const filterValue = button.getAttribute('data-filter');
+      
+      // Počítadlo pro stagger efekt
+      let visibleIndex = 0;
+      
+      portfolioCards.forEach((card, index) => {
+        const cardCategory = card.getAttribute('data-category');
+        const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+        
+        if (shouldShow) {
+          // Zobraz kartu s postupným zpožděním
+          card.style.display = 'block';
+          
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, visibleIndex * 100); // Každá karta o 100ms později
+          
+          visibleIndex++;
+        } else {
+          // Skryj kartu
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.8)';
+          
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initPortfolioFilter);

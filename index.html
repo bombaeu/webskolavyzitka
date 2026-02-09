@@ -72,12 +72,13 @@
             </div>
         </div>
     </section>
+
     <!-- Header bude tady -->
     <section class="skills" id="skills" data-animate="animate-fade-in-down">
         <div class="container">
             <h2 class="section-title" data-animate="animate-fade-in-up">Moje Dovednosti</h2>
             <p class="section-subtitle" data-animate="animate-fade-in-up">Co umím a na čem pracuji</p>
-
+            <p class="portfolio-count">Zobrazeno <span id="project-count">6</span> projektů</p>
             <div class="skills-grid">
 
                 <!-- Kartička 1 -->
@@ -127,10 +128,266 @@
         </div>
 
     </section>
+    <section class="portfolio" id="works">
+        <div class="container">
+            <h2 class="section-title">Moje Projekty</h2>
+            <p class="section-subtitle">Ukázka mých nejlepších prací</p>
+
+            <!-- Filtrovací tlačítka -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Vše</button>
+                <button class="filter-btn" data-filter="it">IT</button>
+                <button class="filter-btn" data-filter="zajmy">Zájmy</button>
+                <button class="filter-btn" data-filter="skola">Škola</button>
+            </div>
+
+            <!-- Grid s projekty -->
+            <div class="portfolio-grid">
+
+                <!-- Projekt 1 -->
+                <div class="portfolio-card" data-category="it">
+                    <div class="portfolio-image">
+                        <img src="https://coderslab.cz/assets/images/Programovaci_jazyk_kurz_it.webp" alt="Programování"
+                            loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Programování</h3>
+                            <p class="portfolio-description"> moje projektíky Programování</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">C#</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Java</span>
+
+                            </div>
+                            <div class="portfolio-links">
+                                <a href="https://hackshield-production-164d.up.railway.app/" class="portfolio-link">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                    Demo
+                                </a>
+                                <a href="https://github.com/bombaeu" class="portfolio-link">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 2 -->
+                <div class="portfolio-card" data-category="it">
+                    <div class="portfolio-image">
+                        <img src="https://i.tlauncher.org/images/fancy-gui-overhaul-resource-pack-1.png" alt="Minecraft"
+                            loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Minecraft designy</h3>
+                            <p class="portfolio-description">Minecraft designy</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">GUI</span>
+                                <span class="tag">Resource pack</span>
+                                <span class="tag">Chat</span>
+                            </div>
+                            <div class="portfolio-links">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 3 -->
+                <div class="portfolio-card" data-category="skola">
+                    <div class="portfolio-image">
+                        <img src="https://www.skolabrandysek.cz/UserFiles/26/Image/1620937715maxresdefault.jpg"
+                            alt="Škola" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Škola</h3>
+                            <p class="portfolio-description">Škola a projekty do školy</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Weby</span>
+                                <span class="tag">Sítě</span>
+                            </div>
+                            <div class="portfolio-links">
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 4 -->
+                <div class="portfolio-card" data-category="zajmy">
+                    <div class="portfolio-image">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="rybaření" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Rybaření</h3>
+                            <p class="portfolio-description">Rybaření</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Úlovky</span>
+                                <span class="tag">Bestiář</span>
+                                <span class="tag">Recepty</span>
+                            </div>
+                            <div class="portfolio-links">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 5 -->
+                <div class="portfolio-card" data-category="it">
+                    <div class="portfolio-image">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="Todo App" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Kyberbezpečnost</h3>
+                            <p class="portfolio-description">Kyberbezpečnost a moje cesta</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Základy</span>
+                                <span class="tag">Ochrana</span>
+                                <span class="tag">Útoky</span>
+                            </div>
+                            <div class="portfolio-links">
+                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekt 6 -->
+                <div class="portfolio-card" data-category="it">
+                    <div class="portfolio-image">
+                        <img src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:240,cw:1440,ch:1080,q:80,w:1440/VFLt5vHV7aCoLrLGjP9Qwm.jpg"
+                            alt="Umělá inteligence" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Umělá inteligence</h3>
+                            <p class="portfolio-description">Umělá inteligence a její využití</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">Strojové učení</span>
+                            </div>
+                            <div class="portfolio-links">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- Hero sekce bude tady -->
 
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Napište mi</h2>
+            <div class="contact-grid">
+                <!-- Levá část: Kontaktní údaje -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:reznicekpatrik5@gmail.com">reznicekpatrik5@gmail.com</a></p>
+                        </div>
+                    </div>
 
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+420774267090">+420 774 267 090</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Adresa</h4>
+                            <p>Uherský Brod, Česká republika</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/bombaeu">GitHub</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pravá část: Formulář -->
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Jméno</label>
+                    <input type="text" id="name" name="name" placeholder="Vaše jméno" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="vás@email.cz" required />
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Předmět</label>
+                    <input type="text" id="message" name="message" placeholder="Předmět zprávy" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Zpráva</label>
+                    <textarea id="message" name="message" rows="8" placeholder="Napište mi zprávu..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Poslat</button>
+            </form>
+            <p class="section-subtitle">Máte dotaz nebo nabídku spolupráce?</p>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Patrik Řezníček</div>
+
+                <div class="social-links">
+                    <a href="https://github.com/bombaeu" class="social-link" aria-label="GitHub">GitHub</a>
+                    <a href="https://www.linkedin.com/in/patrik-%C5%99ezn%C3%AD%C4%8Dek-8b4894370/" class="social-link"
+                        aria-label="LinkedIn">LinkedIn</a>
+                    <a href="https://www.instagram.com/rizecek_patrik/" class="social-link"
+                        aria-label="Instagram">Instagram</a>
+                    <a href="https://www.twitch.tv/bombaczea" class="social-link" aria-label="Twitch">Twitch</a>
+                </div>
+
+                <p class="copyright">© 2026 Všechna práva vyhrazena.</p>
+
+                <a href="#home" class="scroll-top">Nahoru ↑</a>
+            </div>
+        </div>
+    </footer>
     <script src="script.js"></script>
+    <!-- Modal okno -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="modal-close">×</span>
+            <div class="modal-body">
+                <img src="" alt="Project Detail" id="modal-image">
+                <div class="modal-info">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                    <div id="modal-tags"></div>
+                    <div id="modal-links"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
