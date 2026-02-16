@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tvoje jména | Web Designer</title>
 
@@ -13,7 +16,7 @@
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.min.css">
 </head>
 
 <body>
@@ -197,7 +200,7 @@
                                 <span class="tag">Chat</span>
                             </div>
                             <div class="portfolio-links">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -216,7 +219,7 @@
                                 <span class="tag">Sítě</span>
                             </div>
                             <div class="portfolio-links">
-                           
+
                             </div>
                         </div>
                     </div>
@@ -255,7 +258,7 @@
                                 <span class="tag">Útoky</span>
                             </div>
                             <div class="portfolio-links">
-                          
+
                             </div>
                         </div>
                     </div>
@@ -274,7 +277,7 @@
                                 <span class="tag">Strojové učení</span>
                             </div>
                             <div class="portfolio-links">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -352,6 +355,7 @@
             <p class="section-subtitle">Máte dotaz nebo nabídku spolupráce?</p>
         </div>
     </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -371,7 +375,39 @@
                 <a href="#home" class="scroll-top">Nahoru ↑</a>
             </div>
         </div>
+        <!-- Sekce s mapou -->
+        <section class="map-section" id="map-section">
+            <div class="container">
+                <h2 class="section-title">Kde mě najdete</h2>
+                <p class="section-subtitle">Moje poloha na mapě</p>
+                <div id="map"></div>
+            </div>
+        </section>
     </footer>
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicializace mapy — souřadnice Uherský Brod
+        var map = L.map("map").setView([49.027355080895816, 17.651620488613144], 15);
+
+        // Přidání mapových dlaždic z OpenStreetMap
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Přidání markeru s popup oknem
+        L.marker([49.027355080895816, 17.651620488613144])
+            .addTo(map)
+            .bindPopup("<strong>Moje lokace</strong><br>Patrik Řezníček")
+            .openPopup();
+
+        // Druhý marker bez openPopup() - poblíž
+        L.marker([49.0285, 17.653])
+            .addTo(map)
+            .bindPopup("<strong>Zajímavé místo</strong><br>V okolí");
+    </script>
     <script src="script.js"></script>
     <!-- Modal okno -->
     <div class="modal" id="project-modal">
@@ -388,6 +424,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
